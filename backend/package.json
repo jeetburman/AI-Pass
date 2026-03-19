@@ -14,6 +14,8 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.3",
     "@anthropic-ai/sdk": "^0.80.0",
     "@google/generative-ai": "^0.24.1",
     "@prisma/client": "^6.19.2",
@@ -22,17 +24,15 @@
     "dotenv": "^17.3.1",
     "express": "^5.2.1",
     "jsonwebtoken": "^9.0.3",
-    "openai": "^6.32.0"
-  },
-  "devDependencies": {
+    "openai": "^6.32.0",
     "@types/bcryptjs": "^2.4.6",
     "@types/cors": "^2.8.19",
     "@types/express": "^5.0.6",
     "@types/jsonwebtoken": "^9.0.10",
-    "@types/node": "^25.5.0",
+    "@types/node": "^25.5.0"
+  },
+  "devDependencies": {
     "nodemon": "^3.1.14",
-    "prisma": "^6.19.2",
-    "ts-node": "^10.9.2",
-    "typescript": "^5.9.3"
+    "prisma": "^6.19.2"
   }
 }
