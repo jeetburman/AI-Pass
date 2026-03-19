@@ -1,7 +1,9 @@
 import express, { Request, Response } from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
+
 import authRouter from "./routes/auth";
+import taskRouter from "./routes/tasks";
 
 dotenv.config();
 
@@ -16,6 +18,7 @@ app.get('/health', (_req: Request, res: Response) => {
 });
 
 app.use("/auth", authRouter);
+app.use("/tasks", taskRouter);
 
 app.listen(PORT, () => {
   console.log(`Server running on : http://localhost:${PORT}`);
