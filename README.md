@@ -1,4 +1,4 @@
-# AI-Pass — AI Task Workspace
+# AI-Pass - AI Task Workspace
 
 A full-stack web application for submitting text-based tasks, running AI-powered analysis, and viewing structured results.
 
@@ -18,7 +18,7 @@ A full-stack web application for submitting text-based tasks, running AI-powered
 **Backend**
 - Node.js + Express + TypeScript
 - Prisma ORM (v6.19.2)
-- PostgreSQL (Neon — serverless)
+- PostgreSQL (Neon - serverless)
 - JWT authentication
 - bcryptjs for password hashing
 
@@ -74,25 +74,25 @@ A full-stack web application for submitting text-based tasks, running AI-powered
 
 The AI processing layer is implemented as a **context-aware rule-based mock engine** located in `src/services/ai.ts`.
 
-It is intentionally architected as a drop-in replacement for any LLM API. Swapping to a real provider requires only replacing the contents of `src/services/ai.ts` — no changes to routes or database.
+It is intentionally architected as a drop-in replacement for any LLM API. Swapping to a real provider requires only replacing the contents of `src/services/ai.ts` - no changes to routes or database.
 
 ### How it works
 
-**Summarize** — splits input into sentences, extracts key points from actual content, returns word count and sentence count.
+**Summarize** - splits input into sentences, extracts key points from actual content, returns word count and sentence count.
 
-**Classify risk** — scans for a tiered keyword dictionary (critical / high / medium terms), returns `PASS / FAIL / NEEDS_INFO` decision with `LOW / MEDIUM / HIGH / CRITICAL` risk level and specific risk factors found in the text.
+**Classify risk** - scans for a tiered keyword dictionary (critical / high / medium terms), returns `PASS / FAIL / NEEDS_INFO` decision with `LOW / MEDIUM / HIGH / CRITICAL` risk level and specific risk factors found in the text.
 
-**Extract info** — uses regex to extract emails, URLs, phone numbers, dates, names, and reference numbers from raw text.
+**Extract info** - uses regex to extract emails, URLs, phone numbers, dates, names, and reference numbers from raw text.
 
 All responses include `decision`, `confidence`, and `reasons` fields matching the assignment's required structured output shape.
 
 A simulated network delay of 800–1400ms is applied to mimic real API latency.
 
 ### To plug in a real API
-Replace `src/services/ai.ts` with any of the following — the function signature stays identical:
-- OpenAI (`gpt-4o-mini`) — requires billing
-- Anthropic Claude (`claude-haiku-4-5-20251001`) — requires credits
-- Google Gemini (`gemini-1.5-flash`) — free tier, may have regional restrictions
+Replace `src/services/ai.ts` with any of the following - the function signature stays identical:
+- OpenAI (`gpt-4o-mini`) - requires billing
+- Anthropic Claude (`claude-haiku-4-5-20251001`) - requires credits
+- Google Gemini (`gemini-1.5-flash`) - free tier, may have regional restrictions
 
 ---
 
