@@ -4,6 +4,9 @@ A full-stack web application for submitting text-based tasks, running AI-powered
 
 ---
 
+## Arcitecture
+
+
 ## Stack
 
 **Frontend**
