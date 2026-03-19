@@ -150,3 +150,6 @@ App runs at `http://localhost:5173`
 - Better UI
 
 ---
+## Live URLs
+- Frontend: https://ai-pass-frontend-8s3x.onrender.com
+- Backend: https://ai-pass-backend.onrender.com
