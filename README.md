@@ -5,7 +5,7 @@ A full-stack web application for submitting text-based tasks, running AI-powered
 ---
 
 ## Architecture
-![Architecture Diagram](./assets/ai_pass_architecture_final.svg)
+![Architecture Diagram](./assets/ERD.svg)
 
 ## Stack
 
