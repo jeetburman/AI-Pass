@@ -1,9 +1,11 @@
 import express, { Request, Response } from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
-
+import session from "express-session";
+import passport from "./config/passport";
 import authRouter from "./routes/auth";
 import taskRouter from "./routes/tasks";
+import googleRouter from "./routes/google";
 
 dotenv.config();
 
@@ -27,12 +29,21 @@ app.use(cors({
 }));
 
 app.use(express.json());
+app.use(
+  session({
+    secret: process.env.SESSION_SECRET!,
+    resave: false,
+    saveUninitialized: false,
+  })
+);
+app.use(passport.initialize());
 
 app.get('/health', (_req: Request, res: Response) => {
   res.json({ status: 'ok' });
 });
 
 app.use("/auth", authRouter);
+app.use("/auth", googleRouter);
 app.use("/tasks", taskRouter);
 
 app.listen(PORT, () => {
